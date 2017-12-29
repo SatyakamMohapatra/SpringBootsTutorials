@@ -9,11 +9,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class TopicService {
 	
+	
+	
 	@Autowired
 	private TopicRepository topicRepository;
 	
 	public List<Topic> getAllTopic(){
-		List<Topic> topics = new ArrayList<Topic>();	
+		List<Topic> topics = new ArrayList<Topic>();
 		topicRepository.findAll().forEach(topics::add);
 		return topics;
 	}
@@ -24,6 +26,7 @@ public class TopicService {
 	}
 
 	public Topic addTopic(Topic topic) {
+		Topic topic2 = new Topic("java","Java 8","with Lambda");
 		return topicRepository.save(topic);
 		
 	}
