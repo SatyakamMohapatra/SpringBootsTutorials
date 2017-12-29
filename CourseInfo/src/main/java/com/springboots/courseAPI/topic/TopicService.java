@@ -26,7 +26,6 @@ public class TopicService {
 	}
 
 	public Topic addTopic(Topic topic) {
-		Topic topic2 = new Topic("java","Java 8","with Lambda");
 		return topicRepository.save(topic);
 		
 	}

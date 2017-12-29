@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @EnableWebSecurity
 @Configuration
@@ -24,7 +23,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
 		http.authorizeRequests()
 			.antMatchers("/Hello/**").hasRole("ADMIN")
 			.antMatchers("/**").hasRole("USER")
@@ -34,7 +32,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 			//.permitAll()           //without authentication
 			.and()
 			.httpBasic();
-		
 		/*
 		 * another way to control auth by using filter
 		 */
